@@ -27,8 +27,8 @@ const getRandomInterval = () => {
 
 const getRandomQuestion = () => {
   const questions = Object.keys(QAMapping);
-  const randomQuestionIndex = getRandomInteger(questions.length);
-  return questions[randomQuestionIndex];
+  const randomQuestionIndex = getRandomInteger(questions.length + 1);
+  return questions[randomQuestionIndex] || "Question X";
 };
 
 const answerQuestion = question => {
