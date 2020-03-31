@@ -1,3 +1,5 @@
+echo Creating dashboard...
+
 # Try to send import request every 10 second
 # Both "success" and "already exist" responses have HTTP status of 200
 while [[ "$(
