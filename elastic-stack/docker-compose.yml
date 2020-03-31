@@ -14,7 +14,11 @@ services:
         target: /usr/share/elasticsearch/data
   kibana:
     image: docker.elastic.co/kibana/kibana:7.6.0
-    command: sh -c './bin/kibana-plugin install https://github.com/fbaligand/kibana-enhanced-table/releases/download/v1.8.0/enhanced-table-1.8.0_7.6.0.zip ; exec /usr/local/bin/create_dashboard.sh & exec /usr/local/bin/kibana-docker'
+    command: >
+      sh -c './bin/kibana-plugin install
+      https://github.com/fbaligand/kibana-enhanced-table/releases/download/v1.8.0/enhanced-table-1.8.0_7.6.0.zip ;
+      /bin/bash -c 'cat /usr/local/bin/create_dashboard.sh | tr -d "\r" | bash' &
+      exec /usr/local/bin/kibana-docker'
     environment:
       - ELASTICSEARCH_USERNAME=kibana
       - ELASTICSEARCH_PASSWORD=asdfgh
