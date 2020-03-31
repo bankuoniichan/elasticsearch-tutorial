@@ -8,7 +8,7 @@ while [[ "$(
     curl -XPOST localhost:5601/api/kibana/dashboards/import \
     -H 'kbn-xsrf:true' -H 'Content-type:application/json' \
     --write-out "%{http_code}" --output /dev/null --silent \
-    --data @dashboard.json
+    --data @/usr/local/bin/dashboard.json
 )" != "200" ]]
 do
     sleep 10
