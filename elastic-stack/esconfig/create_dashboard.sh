@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo Creating dashboard...
 
 # Try to send import request every 10 second
