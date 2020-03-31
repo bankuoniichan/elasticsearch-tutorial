@@ -1,0 +1,110 @@
+{
+  "version": "7.6.0",
+  "objects": [
+    {
+      "id": "af3d28c0-6f4c-11ea-877b-af0e4701c92c",
+      "type": "dashboard",
+      "updated_at": "2020-03-26T12:28:28.376Z",
+      "version": "Wzg0LDNd",
+      "attributes": {
+        "title": "Chatlog",
+        "hits": 0,
+        "description": "",
+        "panelsJSON": "[{\"version\":\"7.6.0\",\"gridData\":{\"x\":0,\"y\":0,\"w\":10,\"h\":5,\"i\":\"c7990f5d-8554-485f-8584-dc80b639248d\"},\"panelIndex\":\"c7990f5d-8554-485f-8584-dc80b639248d\",\"embeddableConfig\":{},\"panelRefName\":\"panel_0\"},{\"version\":\"7.6.0\",\"gridData\":{\"x\":10,\"y\":0,\"w\":31,\"h\":18,\"i\":\"86aaf8f4-537a-4c59-b7c4-65668cdd373d\"},\"panelIndex\":\"86aaf8f4-537a-4c59-b7c4-65668cdd373d\",\"embeddableConfig\":{},\"panelRefName\":\"panel_1\"}]",
+        "optionsJSON": "{\"hidePanelTitles\":false,\"useMargins\":true}",
+        "version": 1,
+        "timeRestore": false,
+        "kibanaSavedObjectMeta": {
+          "searchSourceJSON": "{\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"filter\":[]}"
+        }
+      },
+      "references": [
+        {
+          "name": "panel_0",
+          "type": "visualization",
+          "id": "a2c73910-6f55-11ea-82a4-61524cebb415"
+        },
+        {
+          "name": "panel_1",
+          "type": "visualization",
+          "id": "f5b961f0-6f52-11ea-82a4-61524cebb415"
+        }
+      ],
+      "migrationVersion": {
+        "dashboard": "7.3.0"
+      }
+    },
+    {
+      "id": "a2c73910-6f55-11ea-82a4-61524cebb415",
+      "type": "visualization",
+      "updated_at": "2020-03-26T11:37:56.487Z",
+      "version": "WzczLDNd",
+      "attributes": {
+        "title": "Filter",
+        "visState": "{\"title\":\"Filter\",\"type\":\"input_control_vis\",\"params\":{\"controls\":[{\"fieldName\":\"sessionId\",\"id\":\"1585222307970\",\"label\":\"Session\",\"options\":{\"dynamicOptions\":false,\"multiselect\":true,\"order\":\"desc\",\"size\":null,\"type\":\"terms\"},\"parent\":\"\",\"type\":\"list\",\"indexPatternRefName\":\"control_0_index_pattern\"}],\"pinFilters\":false,\"updateFiltersOnChange\":true,\"useTimeFilter\":false},\"aggs\":[]}",
+        "uiStateJSON": "{}",
+        "description": "",
+        "version": 1,
+        "kibanaSavedObjectMeta": {
+          "searchSourceJSON": "{\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"filter\":[{\"$state\":{\"store\":\"appState\"},\"meta\":{\"alias\":null,\"controlledBy\":\"1585222307970\",\"disabled\":false,\"key\":\"sessionId\",\"negate\":false,\"params\":{\"query\":2},\"type\":\"phrase\",\"indexRefName\":\"kibanaSavedObjectMeta.searchSourceJSON.filter[0].meta.index\"},\"query\":{\"match_phrase\":{\"sessionId\":2}}}]}"
+        }
+      },
+      "references": [
+        {
+          "name": "kibanaSavedObjectMeta.searchSourceJSON.filter[0].meta.index",
+          "type": "index-pattern",
+          "id": "1ebc8590-6f36-11ea-877b-af0e4701c92c"
+        },
+        {
+          "name": "control_0_index_pattern",
+          "type": "index-pattern",
+          "id": "1ebc8590-6f36-11ea-877b-af0e4701c92c"
+        }
+      ],
+      "migrationVersion": {
+        "visualization": "7.4.2"
+      }
+    },
+    {
+      "id": "f5b961f0-6f52-11ea-82a4-61524cebb415",
+      "type": "visualization",
+      "updated_at": "2020-03-26T11:53:38.103Z",
+      "version": "Wzc3LDNd",
+      "attributes": {
+        "title": "Chat Session Log",
+        "visState": "{\"aggs\":[{\"enabled\":true,\"id\":\"1\",\"params\":{},\"schema\":\"metric\",\"type\":\"count\"},{\"enabled\":true,\"id\":\"2\",\"params\":{\"customLabel\":\"Chat Session\",\"field\":\"sessionId\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\",\"order\":\"desc\",\"orderAgg\":{\"enabled\":true,\"id\":\"2-orderAgg\",\"params\":{\"field\":\"@timestamp\"},\"schema\":{\"aggFilter\":[\"!top_hits\",\"!percentiles\",\"!median\",\"!std_dev\",\"!derivative\",\"!moving_avg\",\"!serial_diff\",\"!cumulative_sum\",\"!avg_bucket\",\"!max_bucket\",\"!min_bucket\",\"!sum_bucket\"],\"editor\":false,\"group\":\"none\",\"hideCustomLabel\":true,\"max\":null,\"min\":0,\"name\":\"orderAgg\",\"params\":[],\"title\":\"Order Agg\"},\"type\":\"max\"},\"orderBy\":\"custom\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"row\":true,\"size\":500},\"schema\":\"split\",\"type\":\"terms\"},{\"enabled\":true,\"id\":\"3\",\"params\":{\"customLabel\":\"Timestamp\",\"field\":\"@timestamp\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\",\"order\":\"desc\",\"orderBy\":\"_key\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"size\":50},\"schema\":\"bucket\",\"type\":\"terms\"},{\"enabled\":true,\"id\":\"4\",\"params\":{\"customLabel\":\"Actor\",\"field\":\"actor.keyword\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\",\"order\":\"desc\",\"orderBy\":\"_key\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"size\":1},\"schema\":\"bucket\",\"type\":\"terms\"},{\"enabled\":true,\"id\":\"5\",\"params\":{\"customLabel\":\"Message\",\"field\":\"message.keyword\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\",\"order\":\"desc\",\"orderBy\":\"1\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"size\":1},\"schema\":\"bucket\",\"type\":\"terms\"}],\"params\":{\"computedColsPerSplitCol\":false,\"computedColumns\":[],\"filterAsYouType\":false,\"filterBarHideable\":false,\"filterBarWidth\":\"25%\",\"filterCaseSensitive\":false,\"filterHighlightResults\":true,\"filterTermsSeparately\":false,\"hiddenColumns\":\"Count\",\"hideExportLinks\":true,\"perPage\":0,\"showFilterBar\":true,\"showMetricsAtAllLevels\":false,\"showPartialRows\":false,\"showTotal\":false,\"sort\":{\"columnIndex\":0,\"direction\":\"desc\"},\"stripedRows\":false,\"totalFunc\":\"sum\"},\"title\":\"Chat Session Log\",\"type\":\"enhanced-table\"}",
+        "uiStateJSON": "{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":0,\"direction\":\"desc\"}}}}",
+        "description": "",
+        "version": 1,
+        "kibanaSavedObjectMeta": {
+          "searchSourceJSON": "{\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filter\":[],\"indexRefName\":\"kibanaSavedObjectMeta.searchSourceJSON.index\"}"
+        }
+      },
+      "references": [
+        {
+          "name": "kibanaSavedObjectMeta.searchSourceJSON.index",
+          "type": "index-pattern",
+          "id": "1ebc8590-6f36-11ea-877b-af0e4701c92c"
+        }
+      ],
+      "migrationVersion": {
+        "visualization": "7.4.2"
+      }
+    },
+    {
+      "id": "1ebc8590-6f36-11ea-877b-af0e4701c92c",
+      "type": "index-pattern",
+      "updated_at": "2020-03-26T07:56:21.979Z",
+      "version": "WzQ2LDJd",
+      "attributes": {
+        "title": "logstash*",
+        "timeFieldName": "@timestamp",
+        "fields": "[{\"name\":\"@timestamp\",\"type\":\"date\",\"esTypes\":[\"date\"],\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"@version\",\"type\":\"string\",\"esTypes\":[\"text\"],\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"@version.keyword\",\"type\":\"string\",\"esTypes\":[\"keyword\"],\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true,\"subType\":{\"multi\":{\"parent\":\"@version\"}}},{\"name\":\"_id\",\"type\":\"string\",\"esTypes\":[\"_id\"],\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":false},{\"name\":\"_index\",\"type\":\"string\",\"esTypes\":[\"_index\"],\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":false},{\"name\":\"_score\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":false,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"_source\",\"type\":\"_source\",\"esTypes\":[\"_source\"],\"count\":0,\"scripted\":false,\"searchable\":false,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"_type\",\"type\":\"string\",\"esTypes\":[\"_type\"],\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":false},{\"name\":\"actor\",\"type\":\"string\",\"esTypes\":[\"text\"],\"count\":1,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"actor.keyword\",\"type\":\"string\",\"esTypes\":[\"keyword\"],\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true,\"subType\":{\"multi\":{\"parent\":\"actor\"}}},{\"name\":\"host\",\"type\":\"string\",\"esTypes\":[\"text\"],\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"host.keyword\",\"type\":\"string\",\"esTypes\":[\"keyword\"],\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true,\"subType\":{\"multi\":{\"parent\":\"host\"}}},{\"name\":\"hostname\",\"type\":\"string\",\"esTypes\":[\"text\"],\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"hostname.keyword\",\"type\":\"string\",\"esTypes\":[\"keyword\"],\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true,\"subType\":{\"multi\":{\"parent\":\"hostname\"}}},{\"name\":\"level\",\"type\":\"number\",\"esTypes\":[\"long\"],\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"message\",\"type\":\"string\",\"esTypes\":[\"text\"],\"count\":1,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"message.keyword\",\"type\":\"string\",\"esTypes\":[\"keyword\"],\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true,\"subType\":{\"multi\":{\"parent\":\"message\"}}},{\"name\":\"pid\",\"type\":\"number\",\"esTypes\":[\"long\"],\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"port\",\"type\":\"number\",\"esTypes\":[\"long\"],\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"sessionId\",\"type\":\"number\",\"esTypes\":[\"long\"],\"count\":1,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"time\",\"type\":\"number\",\"esTypes\":[\"long\"],\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"v\",\"type\":\"number\",\"esTypes\":[\"long\"],\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true}]"
+      },
+      "references": [],
+      "migrationVersion": {
+        "index-pattern": "7.6.0"
+      }
+    }
+  ]
+}
